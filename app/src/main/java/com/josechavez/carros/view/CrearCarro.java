@@ -53,17 +53,36 @@ public class CrearCarro extends AppCompatActivity {
             //Toast.makeText(this,cadena,Toast.LENGTH_LONG).show();
         return  cadena;
     }
+    public int Numerofoto(Spinner spinner){
+        int foto=0;
+        int posicion=spinner.getSelectedItemPosition();
+        if (posicion==0){
+            foto=R.drawable.kia_logo_2560x1440;
+        }
+        if (posicion==1){
+            foto=R.drawable.mazda_logo_1997_1920x1080;
+        }
+        if (posicion==2){
+            foto=R.drawable.chevrolet_logo;
+        }
+        if (posicion==3){
+            foto=R.drawable.nissan_emblem_2003_2048x2048;
+        }
+        return foto;
+    }
     public void guardar(View view){
         String placa,precio,id;
         String marca,modelo,color;
+        int foto;
         placa=txtPlaca.getText().toString();
         precio=txtPrecio.getText().toString();
         marca=obtenerCampo(spn_marca);
         modelo=obtenerCampo(spn_modelo);
         color=obtenerCampo(spn_color);
         id= Datos.getId();
+        foto=Numerofoto(spn_marca);
 
-        Carro c=new Carro(id,placa,marca,modelo,color,precio);
+        Carro c=new Carro(id,placa,marca,modelo,color,precio,foto);
         c.guardar();
         Snackbar.make(view, getResources().getString(R.string.guardado),Snackbar.LENGTH_SHORT).setAction("Action",null).show();
         limpiar();

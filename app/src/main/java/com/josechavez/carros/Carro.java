@@ -11,14 +11,19 @@ public class Carro {
     private String modelo;
     private String color;
     private String precio;
+    private int foto;
 
-    public Carro(String id, String placa, String marca, String modelo, String color, String precio) {
+    public Carro(String id, String placa, String marca, String modelo, String color, String precio,int foto) {
         this.id = id;
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
         this.color = color;
         this.precio = precio;
+        this.foto=foto;
+    }
+
+    public Carro() {
     }
 
     public String getId() {
@@ -67,6 +72,14 @@ public class Carro {
 
     public void setPrecio(String precio) {
         this.precio = precio;
+    }
+
+    public int getFoto() {
+        return foto;
+    }
+
+    public void setFoto(int foto) {
+        this.foto = foto;
     }
 
     public void guardar(){
