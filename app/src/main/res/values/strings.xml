@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Carros</string>
+    <string name="registrar_carros">REGISTRAR CARROS</string>
+    <string name="listar_carros">LISTAR CARROS</string>
+    <string name="reporte">REPORTES</string>
+    <string-array name="op_menu_principal">
+        <item>@string/registrar_carros</item>
+        <item>@string/listar_carros</item>
+        <item>@string/reporte</item>
+    </string-array>
+    <string name="title_activity_lista_carro">ListaCarro</string>
 </resources>
