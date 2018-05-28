@@ -9,4 +9,41 @@
         <item>@string/reporte</item>
     </string-array>
     <string name="title_activity_lista_carro">ListaCarro</string>
+    <string name="borrar">BORRAR</string>
+    <string name="guardar">GUARDAR</string>
+    <string name="color">COLOR</string>
+    <string name="modelo">MODELO</string>
+    <string name="marca">MARCA</string>
+    <string name="titulo">REGISTRO DE CARROS</string>
+    <string name="placa">PLACA</string>
+    <string name="precio">PRECIO</string>
+    <string name="kia">KIA</string>
+    <string name="mazda">MAZDA</string>
+    <string name="chevrolet">CHEVROLET</string>
+    <string name="nissan">NISSAN</string>
+    <string-array name="op_marcas">
+        <item>@string/kia</item>
+        <item>@string/mazda</item>
+        <item>@string/chevrolet</item>
+        <item>@string/nissan</item>
+    </string-array>
+    <string-array name="op_modelos">
+        <item>2014</item>
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+    </string-array>
+    <string name="blanco">Blanco</string>
+    <string name="negro">Negro</string>
+    <string name="rojo">Rojo</string>
+    <string name="amarillo">Amarillo</string>
+    <string-array name="op_colores">
+        <item>@string/blanco</item>
+        <item>@string/negro</item>
+        <item>@string/rojo</item>
+        <item>@string/amarillo</item>
+    </string-array>
+    <string name="guardado">Guardado exitosamente!</string>
+
+
 </resources>
