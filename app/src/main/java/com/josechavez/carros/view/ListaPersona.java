@@ -16,49 +16,55 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.josechavez.carros.AdaptadorCarro;
+import com.josechavez.carros.AdaptadorPersona;
 import com.josechavez.carros.Carro;
 import com.josechavez.carros.Datos;
+import com.josechavez.carros.DatosPersonas;
+import com.josechavez.carros.Persona;
 import com.josechavez.carros.R;
 
 import java.util.ArrayList;
-public class ListaCarro extends AppCompatActivity implements AdaptadorCarro.OnCarroClickListener {
-    private RecyclerView listaCarro;
+
+public class ListaPersona extends AppCompatActivity implements AdaptadorPersona.OnPersonaClickListener{
+    private RecyclerView listaPersona;
     private static String db = "Persona";
     private DatabaseReference databaseReference;
     private Intent intent;
     private LinearLayoutManager llm;
-    private AdaptadorCarro adapter;
-    private ArrayList<Carro> carros;
-
+    private AdaptadorPersona adapter;
+    private ArrayList<Persona> personas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_carro);
+        setContentView(R.layout.activity_lista_persona);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        listaCarro=findViewById(R.id.listaCarro);
-        carros = new ArrayList<>();
+
+
+        listaPersona=findViewById(R.id.listaPersona);
+        personas = new ArrayList<>();
 
         llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
-        adapter = new AdaptadorCarro(carros,this);
+        adapter=new AdaptadorPersona(personas,this);
 
-        listaCarro.setLayoutManager(llm);
-        listaCarro.setAdapter(adapter);
+
+        listaPersona.setLayoutManager(llm);
+        listaPersona.setAdapter(adapter);
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
         databaseReference.child(db).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                carros.clear();
+                personas.clear();
                 if(dataSnapshot.exists()){
                     for(DataSnapshot snapshot:dataSnapshot.getChildren()){
-                        Carro c = snapshot.getValue(Carro.class);
-                        carros.add(c);
+                        Persona p = snapshot.getValue(Persona.class);
+                        personas.add(p);
                     }
                 }
                 adapter.notifyDataSetChanged();
-                Datos.setCarros(carros);
+                DatosPersonas.setPersonas(personas);
             }
 
             @Override
@@ -67,7 +73,7 @@ public class ListaCarro extends AppCompatActivity implements AdaptadorCarro.OnCa
             }
         });
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+                FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,11 +81,22 @@ public class ListaCarro extends AppCompatActivity implements AdaptadorCarro.OnCa
                         .setAction("Action", null).show();
             }
         });
-
     }
 
+
+    public void crearPersona(View v){
+        intent = new Intent(ListaPersona.this,CrearPersona.class);
+        startActivity(intent);
+    }
     @Override
-    public void onCarroClick(Carro c) {
+    public void onPersonaClick(Persona p) {
+        Intent i = new Intent(ListaPersona.this,CrearCarro.class);
+        Bundle b = new Bundle();
+        b.putString("id",p.getId());
+
+
+        i.putExtra("datos",b);
+        startActivity(i);
 
     }
 }

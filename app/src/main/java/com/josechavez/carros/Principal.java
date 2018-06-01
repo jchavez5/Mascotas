@@ -9,7 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.josechavez.carros.view.CrearCarro;
+import com.josechavez.carros.view.CrearPersona;
 import com.josechavez.carros.view.ListaCarro;
+import com.josechavez.carros.view.ListaPersona;
 import com.josechavez.carros.view.Reporte;
 
 public class Principal extends AppCompatActivity {
@@ -43,6 +45,15 @@ public class Principal extends AppCompatActivity {
                         in_principal= new Intent(Principal.this,Reporte.class);
                         startActivity(in_principal);
                         break;
+                    case 3:
+                        in_principal= new Intent(Principal.this,CrearPersona.class);
+                        startActivity(in_principal);
+                        break;
+                    case 4:
+                        in_principal= new Intent(Principal.this,ListaPersona.class);
+                        startActivity(in_principal);
+                        break;
+
                 }
             }
         });

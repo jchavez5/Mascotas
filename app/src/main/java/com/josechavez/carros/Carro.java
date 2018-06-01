@@ -4,7 +4,7 @@ package com.josechavez.carros;
  * Created by Josechavez on 28/05/2018.
  */
 
-public class Carro {
+public class    Carro {
     private String id;
     private String placa;
     private String marca;
@@ -82,7 +82,7 @@ public class Carro {
         this.foto = foto;
     }
 
-    public void guardar(){
-        Datos.guardar(this);
+    public void guardar(String cadena){
+        Datos.guardarPersona(cadena,this);
     }
 }

@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 
 public class AdaptadorCarro extends RecyclerView.Adapter<AdaptadorCarro.CarroViewHolder>{
-    private ArrayList<Carro> carros;
+    private ArrayList<Carro > carros;
     private OnCarroClickListener clickListener;
 
     public AdaptadorCarro(ArrayList<Carro> carros, OnCarroClickListener clickListener) {

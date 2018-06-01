@@ -3,10 +3,14 @@
     <string name="registrar_carros">REGISTRAR CARROS</string>
     <string name="listar_carros">LISTAR CARROS</string>
     <string name="reporte">REPORTES</string>
+    <string name="crear_persona">CREAR PERSONA</string>
+    <string name="lista_persona">LISTA PERSONA</string>
     <string-array name="op_menu_principal">
         <item>@string/registrar_carros</item>
         <item>@string/listar_carros</item>
         <item>@string/reporte</item>
+        <item>@string/crear_persona</item>
+        <item>@string/lista_persona</item>
     </string-array>
     <string name="title_activity_lista_carro">ListaCarro</string>
     <string name="borrar">BORRAR</string>
@@ -43,7 +47,27 @@
         <item>@string/rojo</item>
         <item>@string/amarillo</item>
     </string-array>
+
     <string name="guardado">Guardado exitosamente!</string>
+    <string name="reporte1">No. de Carros Registrado</string>
+    <string name="reporte2">No. de Carros por marca registrados</string>
+    <string name="reporte3">No. de Carros por Color registrados</string>
+    <string name="reporte4">Listado de Carros cuyo modelo este entre 2010 y 2015</string>
+    <string name="reporte5">Datos del carro mas caro registrado</string>
+    <string name="reporte6">Datos del carro mas economicos</string>
+    <string name="nombre">Nombre:</string>
+    <string name="apellido">Apellido:</string>
+    <string name="id_persona">Nombre de la persona:</string>
+    <string name="persona">Nombre de persona</string>
+    <string-array name="lista_reporte">
+        <item>@string/reporte1</item>
+        <item>@string/reporte2</item>
+        <item>@string/reporte3</item>
+        <item>@string/reporte4</item>
+        <item>@string/reporte5</item>
+        <item>@string/reporte6</item>
 
 
+    </string-array>
+    <string name="title_activity_lista_persona">ListaPersona</string>
 </resources>

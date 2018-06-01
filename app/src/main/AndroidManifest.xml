@@ -21,7 +21,12 @@
             android:name=".view.ListaCarro"
             android:label="@string/title_activity_lista_carro"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".view.Reporte"></activity>
+        <activity android:name=".view.Reporte" />
+        <activity android:name=".view.CrearPersona" />
+        <activity
+            android:name=".view.ListaPersona"
+            android:label="@string/title_activity_lista_persona"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

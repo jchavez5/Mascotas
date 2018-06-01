@@ -14,19 +14,23 @@ import android.widget.Toast;
 
 import com.josechavez.carros.Carro;
 import com.josechavez.carros.Datos;
+import com.josechavez.carros.Persona;
 import com.josechavez.carros.Principal;
 import com.josechavez.carros.R;
 
 public class CrearCarro extends AppCompatActivity {
-    private EditText txtPlaca,txtPrecio;
+    private EditText txtPlaca,txtPrecio,txtnombre;
     private Spinner spn_marca,spn_modelo,spn_color;
     private String [] opc_marca,opc_modelo,opc_color;
     private ArrayAdapter<String> adp_marca,adp_modelo,adp_color;
+    private Bundle bundle;
+    private Intent i;
+    private String id_persona;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_carro);
-
+        txtnombre=findViewById(R.id.txtnombre);
         txtPlaca = findViewById(R.id.txtPlaca);
         //Spinner de Marcas
         spn_marca = findViewById(R.id.lst_marca);
@@ -44,6 +48,9 @@ public class CrearCarro extends AppCompatActivity {
         adp_color = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,opc_color);
         spn_color.setAdapter(adp_color);
         txtPrecio = findViewById(R.id.txtPrecio);
+        i =getIntent();
+        bundle = i.getBundleExtra("datos");
+        id_persona = bundle.getString("id");
 
 
     }
@@ -71,7 +78,7 @@ public class CrearCarro extends AppCompatActivity {
         return foto;
     }
     public void guardar(View view){
-        String placa,precio,id;
+        String placa,precio,id,nombre;
         String marca,modelo,color;
         int foto;
         placa=txtPlaca.getText().toString();
@@ -82,11 +89,16 @@ public class CrearCarro extends AppCompatActivity {
         id= Datos.getId();
         foto=Numerofoto(spn_marca);
 
+        nombre=txtnombre.getText().toString();
+
+
+
         Carro c=new Carro(id,placa,marca,modelo,color,precio,foto);
-        c.guardar();
+        c.guardar(id_persona);
         Snackbar.make(view, getResources().getString(R.string.guardado),Snackbar.LENGTH_SHORT).setAction("Action",null).show();
         limpiar();
     }
+
     public void limpiar(View v){
         limpiar();
     }
